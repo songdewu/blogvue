@@ -1,0 +1,79 @@
+@charset "UTF-8";
+// 字体
+$ff: 'Microsoft YaHei';
+$fa: Arial,
+Helvetica,
+sans-serif;
+$wd1200: 1200px;
+$black: #000;
+$white: #fff;
+$gold: #ac955f;
+$success: #4caf50;
+$error: #ff5252;
+$warning: #ffc105;
+$disabled: #aaa;
+
+// 背景色，文本色，边框色，链接色
+//----------------------------------------------------- 
+$colorText: #333 !default;
+$colorBg: #fff !default;
+$colorBorder: #e5e5e5 !default;
+$colorLink: $colorText !default;
+$colorPlaceholder: #999 !default; // input placeholder color
+$colorDisabled: (text: #999, bg: #e3e3e3, border: #dbdbdb) !default; // textColor bgColor borderColor
+$colorOverlay: rgba(0, 0, 0, .7) !default; // 遮罩层颜色
+
+
+// 基本颜色
+// color function : http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html
+// lighten($color, $amount)
+// darken($color, $amount)
+// opacity($color, $amount)
+// mix($color1, $color2[, $amount])
+//----------------------------------------------------- 
+$color3: #333;
+$color6: #666;
+$color9: #999;
+$colorC: #ccc;
+$colorF: #f5f5f5;
+
+$blue: #007aff !default;
+$orange: #ff7738 !default;
+$red: #ff3b30 !default;
+$green: #4cd964 !default;
+$primary: #c7a47b !default;
+$primaryFont: #a57e4a !default;
+
+// 背景颜色
+$bgColor: #0b0b08 !default;
+$darkColor: #331500 !default;
+
+// 四个梯度的黑色（灰色）越低越黑越高越灰
+$black_1: #212121;
+$black_2: #616161;
+$black_3: #9E9E9E;
+$black_4: #E0E0E0;
+
+
+// 字体大小
+$fs13: 13px;
+$fs14: 14px;
+$fs16: 16px;
+$fs18: 18px;
+$fs20: 20px;
+$fs24: 24px;
+$fs28: 28px;
+// 间距
+$p5: 5px;
+$p10: 10px;
+$p15: 15px;
+$p20: 20px;
+$p25: 25px;
+$p30: 30px;
+$p40: 40px;
+$p50: 50px;
+// 圆角弧度
+$r4: 4px;
+$r8: 8px;
+
+$imgDomain: 'https://static.banbooyun.com';

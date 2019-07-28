@@ -1,0 +1,309 @@
+/*
+ * element-ui 主题变量
+ * @link element-ui/packages/theme-chalk/src/common/var.scss
+ */
+
+$--color-gold: #c7a47b !default;
+$--color-primary: #a57e4a !default;
+$--dialog-padding-primary: 10px;
+$--dialog-padding-primary: 16px;
+$--color-info: #2d8cf0 !default;
+
+/* Border
+-------------------------- */
+$--border-width-base: 1px !default;
+$--border-style-base: solid !default;
+$--border-color-base: #dcdfe6 !default;
+
+/* Input
+-------------------------- */
+$--input-height: 50px !default;
+$--input-border-radius: 2px;
+
+/* Checkbox
+-------------------------- */
+$--checkbox-font-weight: normal !default;
+$--checkbox-checked-text-color: #333 !default;
+
+/* Radio
+-------------------------- */
+$--radio-font-weight: normal !default;
+
+/* Table
+-------------------------- */
+$--table-border-color: #f0f0f0 !default;
+$--table-header-color: #333;
+$--table-header-background-color: #f3f4f5;
+
+/* Message
+-------------------------- */
+$--message-min-width: 120px !default;
+$--message-padding: 12px 18px 12px 20px !default;
+$--message-close-size: 15px !default;
+
+// $--message-success-color: $--color-success !default;
+// $--message-info-color: $--color-info !default;
+// $--message-warning-color: $--color-warning !default;
+// $--message-danger-color: $--color-danger !default;
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+// 弹窗
+.el-dialog__close.el-icon-close {
+    color: #666;
+    font-weight: bold;
+}
+
+.v-modal {
+    opacity: 0.65;
+}
+
+// 定制dialog
+.dialog-jnb-main {
+    .el-dialog {
+        width: 450px;
+    }
+
+    .el-dialog__header {
+        text-align: center;
+        padding-top: 44px;
+        padding-bottom: 20px;
+
+        .el-dialog__title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+    }
+
+    .el-dialog__body {
+        padding: 18px 50px 44px;
+    }
+}
+
+// form
+.el-form-item {
+    margin-bottom: 24px;
+
+    // 去掉丑丑的认证成功绿线
+    &.is-success {
+
+        & .el-input__inner,
+        & .el-textarea__inner {
+
+            &,
+            &:focus {
+                border-color: $--border-color-base;
+            }
+        }
+    }
+}
+
+.el-form-item__label {
+    line-height: $--input-height;
+}
+
+.el-form--label-top .el-form-item__label {
+    line-height: 1.4;
+}
+
+.el-input--prefix .el-input__inner {
+    padding-left: 44px;
+}
+
+// 自定义按钮
+.el-button {
+    &.el-button--white {
+        color: $white;
+        border-color: $white;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: $white;
+            background: $white;
+            color: $darkColor;
+        }
+    }
+
+    &.el-button--jmb {
+        color: $darkColor;
+        border-color: transparent;
+        // background-image: url(../images/home/home_product_slider.png);
+        background-size: 102%;
+        background-position: center center;
+
+        &:hover,
+        &:focus,
+        &:active {
+            @extend .el-button--jmb;
+            opacity: 0.9;
+        }
+    }
+
+    &.el-button--gold {
+        color: #fff;
+        border-color: $--color-gold;
+        background-color: $--color-gold;
+
+        &.is-plain {
+            color: $--color-gold;
+        }
+
+        &.is-disabled {
+            &.is-plain {
+                color: #b7a999;
+            }
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: #fff;
+            border-color: $--color-gold;
+            background-color: $--color-gold;
+            opacity: 0.9;
+        }
+    }
+
+    &.el-button--big {
+        font-size: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        width: 100%;
+    }
+
+    &.is-plain {
+        background-color: transparent;
+    }
+
+    &.is-round {
+        border-radius: 100px;
+    }
+
+    &.button-width {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+
+// table
+.el-table .cell {
+    padding-left: 30px;
+    padding-right: 30px;
+    min-height: 24px;
+    line-height: 24px;
+}
+
+.el-table__expanded-cell {
+    background-color: #fafafa;
+    padding: 30px !important;
+
+    &:hover {
+        background-color: #fafafa !important;
+    }
+}
+
+// message
+.el-message {
+    background-color: #fff;
+    border-color: transparent;
+    box-shadow: 1px 2px 7px rgba(0, 0, 0, .2);
+
+    &.el-message--info {
+        .el-message__content {
+            color: #222;
+        }
+    }
+}
+
+.el-tooltip__popper {
+    max-width: 420px;
+}
+
+// steps
+.manage-steps {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .el-step__head.is-finish,
+    .el-step__head.is-process {
+        color: #fff;
+        border-color: $--color-gold;
+
+        .el-step__icon {
+            background-color: $--color-gold;
+        }
+    }
+
+    .el-step__head.is-wait {
+        color: $--color-gold;
+        border-color: #fff;
+
+        .el-step__icon {
+            background-color: #fff;
+        }
+    }
+
+    .el-step__icon {
+        width: 26px;
+        height: 26px;
+        box-shadow: 0px 2px 5px rgba(10, 10, 10, 0.22);
+    }
+
+    .el-step__line {
+        background-color: #eee;
+    }
+
+    .el-step__line-inner {
+        height: 3px !important;
+        background-color: $--color-gold;
+    }
+
+    .el-step__line {
+        height: 3px !important;
+        top: 12px !important;
+    }
+
+    .el-step__title {
+        font-size: 14px;
+        padding-top: 16px;
+        font-weight: bold;
+
+        span {
+            font-size: 12px;
+            color: #fff;
+            opacity: .6;
+            font-weight: normal;
+        }
+
+        p {
+            display: inline-block;
+        }
+
+        &.is-wait {
+            color: #333;
+
+            span {
+                background-color: #bbb;
+            }
+        }
+
+        &.is-finish {
+            span {
+                background-color: $--color-gold;
+            }
+        }
+        }
+        }
+
+        //breadcrumb
+        .el-breadcrumb__inner {
+            &.is-link {
+                font-weight: normal;
+                color: $--color-gold;
+            }
+        }

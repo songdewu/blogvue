@@ -54,31 +54,31 @@ module.exports = {
     sourceMap: process.env.NODE_ENV !== "production",
     loaderOptions: {
       sass: {
-        data: `@import "@/assets/css/variables.scss";`
+        data: `@import "@/assets/styles/variables.scss";`
       }
     },
     modules: false
   },
 
   //   parallel: require('os').cpus().length > 1,
+  devServer: {
+    port: 8066,
+    https: false,
+    hotOnly: true,
+    open: true,
+    disableHostCheck: true,
+    proxy: {
+      // 金牛邦
+      '/api': {
+        target: 'http://127.0.0.1:7001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
+      }
+    }
+  },
 
-  //   devServer: {
-  //     port: 8066,
-  //     https: false,
-  //     hotOnly: false,
-  //     open: false,
-  //     disableHostCheck: true,
-  //     proxy: {
-  //       // 金牛邦
-  //       '/apijnb': {
-  //         target: 'http://clifinancial_unicbull.cycredit.com.cn',
-  //         changeOrigin: true,
-  //         pathRewrite: {
-  //           '^/apijnb': '/'
-  //         }
-  //       }
-  //     }
-  //   },
 
   // 第三方插件的选项
   pluginOptions: {

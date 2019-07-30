@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router,{resetRouter,asyncRouter} from './router.js'
+import router,{resetRouter,asyncRouter} from '../../router/router.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     isLogin:false,
     userInfo:null,
+    token:null,
     roles:['person']
   },
   mutations: {

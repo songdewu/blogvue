@@ -74,7 +74,7 @@ i {
     border-bottom: 2px solid #dcdcdc;
 }
 
-//不换行
+/* //不换行 */
 .nowrap {
     word-break: keep-all;
     white-space: nowrap;
@@ -108,7 +108,7 @@ li {
 
 
 
-// 公共
+/* // 公共 */
 .clear {
     clear: both;
 }

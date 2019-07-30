@@ -23,7 +23,21 @@ module.exports = {
       .set("libs", resolve("src/libs"));
 
     config.output.chunkFilename(`js/[name].[chunkhash:8].js`);
-
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/icons'))
+      .end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
     // config
     //   .plugin('webpack-bundle-analyzer')
     //   .use(BundleAnalyzerPlugin)

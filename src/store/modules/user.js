@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { login, logout, getInfo } from '../../api/user'
+import { getToken, setToken, removeToken } from '../../utils/auth'
 import router,{resetRouter,asyncRouter} from '../../router/router.js'
 Vue.use(Vuex)
 
@@ -7,7 +9,9 @@ export default new Vuex.Store({
   state: {
     isLogin:false,
     userInfo:null,
-    token:null,
+    avatar:'',
+    name:'',
+    token:getToken(),
     roles:['person']
   },
   mutations: {
@@ -21,6 +25,15 @@ export default new Vuex.Store({
     setRoles:(state,arr)=>{
       state.roles = arr;
     },
+    SET_TOKEN: (state, token) => {
+      state.token = token
+    },
+    SET_NAME: (state, name) => {
+      state.name = name
+    },
+    SET_AVATAR: (state, avatar) => {
+      state.avatar = avatar
+    }
   },
   actions: {
     userLogin:({commit,state,dispatch})=>{
@@ -56,7 +69,62 @@ export default new Vuex.Store({
          console.log('最终的路由是：',router)
       }
      
-    }
+    },
+    login({ commit }, userInfo) {
+      const { username, password } = userInfo
+      return new Promise((resolve, reject) => {
+        login({ username: username.trim(), password: password }).then(response => {
+          const { data } = response
+          commit('SET_TOKEN', data.token)
+          setToken(data.token)
+          resolve()
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+    getInfo({ commit, state }) {
+      return new Promise((resolve, reject) => {
+        getInfo(state.token).then(response => {
+          const { data } = response
+
+          if (!data) {
+            reject('Verification failed, please Login again.')
+          }
+
+          const { name, avatar } = data
+
+          commit('SET_NAME', name)
+          commit('SET_AVATAR', avatar)
+          resolve(data)
+        }).catch(error => {
+          reject(error)
+        })
+      })
+  },
+
+  // user logout
+  logout({ commit, state }) {
+    return new Promise((resolve, reject) => {
+      logout(state.token).then(() => {
+        commit('SET_TOKEN', '')
+        removeToken()
+        resetRouter()
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+
+  // remove token
+  resetToken({ commit }) {
+    return new Promise(resolve => {
+      commit('SET_TOKEN', '')
+      removeToken()
+      resolve()
+    })
+  }
 
   }
 })

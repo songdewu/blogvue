@@ -8,6 +8,9 @@ import "./plugins/config";
 import "./plugins/funs";
 import "./plugins/element.js";
 import "./assets/styles/reset.css";
+import "./assets/styles/index.scss";
+import '@/icons' // icon
+// import '@/permission'
 Vue.config.productionTip = false;
 
 new Vue({

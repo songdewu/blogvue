@@ -7,6 +7,7 @@ import "./plugins/bus";
 import "./plugins/config";
 import "./plugins/funs";
 import "./plugins/element.js";
+import "./plugins/routerAuth";
 import "./assets/styles/reset.css";
 import "./assets/styles/index.scss";
 import '@/icons' // icon

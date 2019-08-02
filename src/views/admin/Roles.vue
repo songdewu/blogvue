@@ -1,9 +1,7 @@
 <template>
 <div>
-
     <div class="content">
-home.vue
-        
+        权限方案
     </div>
 </div>
 </template>
@@ -14,7 +12,6 @@ home.vue
 export default {
     name: "home",
     components: {
-
     }
 };
 </script>

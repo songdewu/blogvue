@@ -83,11 +83,11 @@ module.exports = {
     disableHostCheck: true,
     proxy: {
       // 金牛邦
-      '/api': {
+      [process.env.VUE_APP_BASE_API]: {
         target: 'http://127.0.0.1:7001',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': '/'
+          ['^' + process.env.VUE_APP_BASE_API]: '/'
         }
       }
     }

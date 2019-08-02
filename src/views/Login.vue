@@ -78,20 +78,14 @@ export default {
         const validatePassword = (rule, value, callback) => {
             if (value.length < 6) {
                 callback(
-                    new Error("The password can not be less than 6 digits")
+                    new Error("The password can not be less than 6 digits")//17f4eee89c53a2328676609c9bc7b666
                 );
             } else {
                 callback();
             }
         };
         return {
-            formData: {
-                name: "",
-                pwd: "17f4eee89c53a2328676609c9bc7b666",
-                tel: "",
-                code: "",
-                isSave: false
-            },
+
             loginForm: {
                 username: "admin",
                 password: "111111"
@@ -137,6 +131,7 @@ export default {
             });
         },
         handleLogin() {
+            
             this.$refs.loginForm.validate(valid => {
                 if (valid) {
                     this.loading = true;

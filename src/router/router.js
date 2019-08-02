@@ -29,27 +29,50 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
+  },
+  {
+    path: "/admin",
+    component: Layout,
+    redirect: '/admin/list',
+    name: 'admin',
+    meta: { title: '管理员', icon: 'dashboard' },
+    children: [
+      {
+        path:'list',
+        name:'list',
+        meta: {
+          title: '操作管理员',
+          icon: 'dashboard',
+          roles: ['index']
+        },
+        component:() => import( '../views/admin/Admin.vue')
+      },
+      {
+        path:'group',
+        name:'group',
+        meta: {
+          title: '管理组',
+          icon: 'dashboard',
+          roles: ['index']
+        },
+        component:() => import( '../views/admin/Group.vue')
+      },
+      {
+        path:'roles',
+        name:'roles',
+        meta: {
+          title: '权限方案',
+          icon: 'dashboard',
+          roles: ['index']
+        },
+        component:() => import( '../views/admin/Roles.vue')
+      }
+    ]
   }
 ];
 
-export const asyncRouter = [
-  {
-    path: "/ucenter",
-    name: "ucenter",
-    // which is lazy-loaded when the route is visited.
-    component: () => import("../views/ucenter.vue"),
-    children: [
-      // {
-      //   path:'',
-      //   meta: {
-      //     title: '首页',
-      //     icon: 'lock',
-      //     roles: ['index']
-      //   },
-      //   component:() => import( '../views/ucenter/index.vue')
-      // }
-    ]
-  }
+export const asyncRoutes = [
+
 ];
 
 const createRouter = () =>
@@ -60,7 +83,7 @@ const createRouter = () =>
   });
 
 const router = createRouter();
-// router.addRoutes(asyncRouter);
+router.addRoutes(asyncRoutes);
 
 export function resetRouter() {
   const newRouter = createRouter();
